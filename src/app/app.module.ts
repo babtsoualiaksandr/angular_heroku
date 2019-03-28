@@ -10,6 +10,10 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminModule } from './admin/admin.module';
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -20,8 +24,12 @@ import { AdminModule } from './admin/admin.module';
     ContactComponent,
     AboutComponent,
     AdminComponent
+
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.fairbaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
     AppRoutingModule,
     AdminModule
